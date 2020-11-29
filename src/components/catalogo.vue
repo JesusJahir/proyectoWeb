@@ -58,12 +58,7 @@
 
             <div class="page-but">
                 <br>
-                <span> 1 </span>
-                <span> 2 </span>
-                <span> 3 </span>
-                <span> 4 </span>
-                <span> 5 </span>
-                <span> &#8594; </span>
+                <span v-for="page in totalPages" :key="page" v-on:click ="goToPage(page)">{{page}}</span>
             </div>
             <br>
         </div>
@@ -101,14 +96,17 @@ export default {
             products: null,
             status: '',
             orderByKey: '',
-            searchText: ''
+            searchText: '',
+            totalPages: 0,
         }
     },
     methods: {
         getProducts: function (params) {
+            console.log(params)
             axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
                 this.products = response.data.productos
                 this.status = response.data.status
+                this.totalPages = response.data.totalPages
             })
             .catch(e => {
                 this.errors.push(e)
@@ -151,7 +149,19 @@ export default {
                 'searchTerm': this.searchText
             }
             this.getProducts(params)
-        }
+        },
+
+        goToPage: function (page) {
+            console.log('page ', page);
+
+            var params = {
+                'orderBy': this.orderByKey,
+                'searchTerm': this.searchText,
+                'currentPage': page
+            }
+
+            this.getProducts(params)
+        },
     },
 
     mounted () {
