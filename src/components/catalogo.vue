@@ -35,13 +35,22 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div v-if="status === false">No hay resultados</div>
+=======
+                <div v-if="status === false">
+                    No hay resultados
+                </div>
+>>>>>>> 4121ac5d40b4fb9afa35fe7246f5367e2f2a2c27
                 <div v-else class="catalog-grid">
                     <div class="container" v-for="product in products" :key="product.id">
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
+                                    <a href = "product.html">
+                                        <img v-if="product.image != ''" :src="product.image">
+                                        <img v-else src="../assets/cd_default.jpg">
+                                    </a>
                                     <h1> {{product.name}} </h1>
                                     <p> ${{product.price}} </p> <br>
                                     <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
