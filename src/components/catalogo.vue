@@ -35,13 +35,7 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <div v-if="status === false">No hay resultados</div>
-=======
-                <div v-if="status === false">
-                    No hay resultados
-                </div>
->>>>>>> 4121ac5d40b4fb9afa35fe7246f5367e2f2a2c27
                 <div v-else class="catalog-grid">
                     <div class="container" v-for="product in products" :key="product.id">
                         <div class="form">
