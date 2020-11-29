@@ -18,7 +18,7 @@
 
                 <div class="fila">
                     <h2> Cat&aacute;logo de productos </h2>
-                    <select>
+                    <select v-on:click ="getProducts" >
                         <option> Destacados </option>
                         <option> De mayor a menor precio </option>
                         <option> De menor a mayor precio </option>
@@ -28,161 +28,30 @@
 
                 <div class="fila">
                     <div class="inputBox">
-                        <input class="search-text" type="text" name="prod" id="prod" ref="prod" placeholder="Búsqueda de producto"/>
-                        <button class="search-button"><img src="../assets/lupa.png" width="40px" height="40px"></button>
+                        <input class="search-text" type="text" name="searchText" id="searchText" ref="searchText" placeholder="Búsqueda de producto"/>
+                        <button class="search-button" v-on:click ="getProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
                     </div>
                 </div>
 
-                <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div v-if="status === false">
+                    No hay resultados
                 </div>
-                <div class="body2">
-                    <div class="container">
+                <div v-else class="catalog-grid"> 
+                    <div class="container" v-for="product in products" :key="product.id">
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
                                     <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
+                                    <h1> {{product.name}} </h1>
+                                    <p> ${{product.price}} </p> <br>
                                     <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                        
                 </div>
-                <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <div class="page-but">
@@ -221,14 +90,65 @@
 </template>
 
 <script>
-export default {
 
+import axios from 'axios'
+
+
+export default {
+    
   name: 'catalogo',
   data () {
     return {
-
+        products: null,
+        status: ''
     }
-  }
+  },
+
+  methods: {
+    getProducts: function (event) {
+
+/*
+      const requestToken = {'username': mail}
+      let tokenJWT = ''
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
+        .then(response => {
+          tokenJWT = response.data.token
+        })
+        */
+
+      let searchText = this.$refs.searchText.value
+      
+      const searchTerm = { 
+        'searchTerm': searchText,
+        }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', searchTerm)
+        .then(response => {
+            console.log('success', response.data.status)
+            console.log('data', response.data.productos)
+            this.products = response.data.productos;
+            this.status = response.data.status;
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    }},
+
+    mounted () {
+        axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo')
+        .then(response => {
+            console.log('success', response.data.status)
+            console.log('data', response.data.productos)
+            this.products = response.data.productos;
+            this.status = response.data.status;
+        })
+        .catch(e => {
+            this.errors.push(e)
+        })
+    }
+    
+
+  // Fetches posts when the component is created.
+
 }
 </script>
 
@@ -610,6 +530,11 @@ input[type="button"]:hover{
 
 .search-text::placeholder{
     color: rgba(150, 150, 150, 0.6);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 </style>
