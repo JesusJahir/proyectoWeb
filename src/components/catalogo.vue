@@ -33,23 +33,25 @@
                     </div>
                 </div>
 
-
                 <div v-if="status === false">
                     No hay resultados
                 </div>
-                <div v-else class="catalog-grid"> 
+                <div v-else class="catalog-grid">
                     <div class="container" v-for="product in products" :key="product.id">
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
+                                    <a href = "product.html">
+                                        <img v-if="product.image != ''" :src="product.image">
+                                        <img v-else src="../assets/cd_default.jpg">
+                                    </a>
                                     <h1> {{product.name}} </h1>
                                     <p> ${{product.price}} </p> <br>
                                     <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
                                 </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
 
             </div>
@@ -93,21 +95,19 @@
 
 import axios from 'axios'
 
-
 export default {
-    
+
   name: 'catalogo',
   data () {
     return {
-        products: null,
-        status: ''
+      products: null,
+      status: ''
     }
   },
 
   methods: {
     getProducts: function (event) {
-
-/*
+      /*
       const requestToken = {'username': mail}
       let tokenJWT = ''
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
@@ -117,35 +117,34 @@ export default {
         */
 
       let searchText = this.$refs.searchText.value
-      
-      const searchTerm = { 
-        'searchTerm': searchText,
-        }
+
+      const searchTerm = {
+        'searchTerm': searchText
+      }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', searchTerm)
         .then(response => {
-            console.log('success', response.data.status)
-            console.log('data', response.data.productos)
-            this.products = response.data.productos;
-            this.status = response.data.status;
+          console.log('success', response.data.status)
+          console.log('data', response.data.productos)
+          this.products = response.data.productos
+          this.status = response.data.status
         })
         .catch(e => {
           this.errors.push(e)
         })
     }},
 
-    mounted () {
-        axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo')
-        .then(response => {
-            console.log('success', response.data.status)
-            console.log('data', response.data.productos)
-            this.products = response.data.productos;
-            this.status = response.data.status;
-        })
-        .catch(e => {
-            this.errors.push(e)
-        })
-    }
-    
+  mounted () {
+    axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo')
+      .then(response => {
+        console.log('success', response.data.status)
+        console.log('data', response.data.productos)
+        this.products = response.data.productos
+        this.status = response.data.status
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  }
 
   // Fetches posts when the component is created.
 
