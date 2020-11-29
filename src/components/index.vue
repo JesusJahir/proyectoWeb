@@ -1,0 +1,383 @@
+<template>
+    <body>
+        <div class="header"> <A name = "top"> </A>
+            <div class="container1">
+                <div class="menubar">
+                    <div class="logo">
+                        <img src="../assets/logot.gif" width="200px">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html"> Home </a></li>
+                            <li><a href="catalogo.html"> Cat&aacute;logo </a></li>
+                            <li><a href="login.html"> Inicia sesi&oacute;n </a></li>
+                            <li><a href="creaCuenta.html"> Reg&iacute;strate </a></li>
+                        </ul>
+                    </nav>
+                    <img src="../assets/bolsa.png" width="30px" height="30px">
+                </div>
+
+                <div class="fila">
+                    <div class="col2">
+                        <h1> ¡SMILE <br> ya disponible!</h1>
+                        <p>El nuevo &aacute;lbum de Katy Perry, incluye los hits: <br>
+                            <ol>
+                                <li> Never Really Over </li>
+                                <li> Daisies </li>
+                                <li> Smile </li>
+                                <li> Harleys in Hawaii </li>
+                            </ol>
+                        </p>
+                        <a href="" class="but">
+                            ¡C&oacute;mpralo ya!
+
+                        </a>
+                    </div>
+
+                    <div class="col2">
+                        <img src="../assets/KP.png">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="parte2">
+            <div class="billboardtop">
+                <h2 class="title"> ¿No sabes qu&eacute; comprar? ¡Revisa el top de álbumes de la semana! <br></h2>
+                <table border="3">
+                    <tr class="fila1">
+                    <th><i><b>Posici&oacute;n</b></i></th>
+                    <th><i><b>Artista</b></i></th>
+                    <th><i><b>&Aacute;lbum</b></i></th>
+                    <th><i><b>Precio</b></i></th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Katy Perry</td>
+                        <td>Smile</td>
+                        <td>$13.99</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Taylor Swift</td>
+                        <td>folklore</td>
+                        <td>$13.99</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Dua Lipa</td>
+                        <td>Future Nostalgia</td>
+                        <td>$12.99</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>The Weeknd</td>
+                        <td>After Hours</td>
+                        <td>$10.99</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Lady Gaga</td>
+                        <td>Chromatica</td>
+                        <td>$9.99</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        <div class="fotoscds">
+            <a href = "https://www.instagram.com/theweeknd/"><img src = "../assets/the w.jpg"></a>
+            <a href = "https://www.instagram.com/taylorswift/"><img src = "../assets/folk.jpg"></a>
+            <a href = "https://www.instagram.com/katyperry/"><img src = "../assets/Smile Album.jpg"></a>
+            <a href = "https://www.instagram.com/dualipa/"><img src = "../assets/dua.jpg"></a>
+            <a href = "https://www.instagram.com/ladygaga/"><img src = "../assets/lady gaga.jpg"> </a>
+        </div>
+
+        </div>
+
+        <div class="parte3">
+            <h3 class="title"> Productos relevantes </h3>
+            <div class="fila">
+                <div class="col1-4">
+                    <img src="../assets/ironmaiden.jpg">
+                    <h4>Powerslave - Iron Maiden </h4>
+                    <p>$11.99</p>
+                </div>
+                <div class="col1-4">
+                    <img src="../assets/imaginedragons.jpg">
+                    <h4>Evolve - Imagine Dragons </h4>
+                    <p>$11.99</p>
+                </div>
+                <div class="col1-4">
+                    <img src="../assets/lorde.jpg">
+                    <h4>Melodrama - Lorde </h4>
+                    <p>$11.99</p>
+                </div>
+                <div class="col1-4">
+                    <img src="../assets/maroon5.jpg">
+                    <h4>V (Deluxe Edition) - Maroon 5 </h4>
+                    <p>$12.99</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie">
+            <div class="contenedor_pie">
+                <div class="fila">
+                    <div class="col1">
+                        <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
+                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                    </div>
+                    <div class="col1">
+                        <img src="../assets/logot.gif" width="200px">
+                    </div>
+                    <div class="col1">
+                        S&iacute;guenos en redes <br>
+                        <img src="../assets/facebook.png" width="50px">
+                        <img src="../assets/Instagram.png" width="50px"> <br>
+                        <img src="../assets/Twitter.png" width="50px">
+                        <img src="../assets/Youtube.png" width="50px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</template>
+
+<script>
+export default {
+
+  name: 'loggedIndex',
+  data () {
+    return {
+
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Segoe UI";
+}
+
+.menubar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul{
+    display: inline;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a{
+    display: inline-block;
+    color: #03e9f4;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    /*overflow: hidden; */
+    transition: 0.5s;
+    letter-spacing: 2px;
+    padding: 4px 15px;
+    margin: 10px 0;
+    border-radius: 30px;
+}
+
+nav a:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 150px #03e9f4;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    color: #ffffff;
+}
+
+.container1{
+    max-width: 1200px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fila{
+    display: flex;
+    align-items: center;
+    flex: wrap;
+    justify-content: space-around;
+}
+
+.col2{
+    flex-basis: 50%;
+    min-width: 100px
+}
+
+.col2 img{
+    max-width: 100%;
+    padding: 10px 0;
+}
+
+.col2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+.but{
+    display: inline-block;
+    color: #03e9f4;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    /*overflow: hidden; */
+    transition: 0.5s;
+    letter-spacing: 2px;
+    padding: 8px 30px;
+    margin: 30px 0;
+}
+
+.but:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 150px #03e9f4;
+}
+
+.header{
+    background: radial-gradient(#000040 , #000000);
+    color: #ffffff;
+}
+
+.parte2{
+    background: radial-gradient(#0a3808 , #000000);
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.billboardtop{
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 50%;
+    border: 3px solid #ffffff;
+    margin: auto;
+    border-spacing: 5px;
+    color: #fff;
+ }
+
+ td, th {
+    padding: 10px;
+    text-align: center;
+    color: #ffff;
+    vertical-align: top;
+ }
+
+ .fila1 {
+    background-color:#000000;
+}
+
+.title{
+    text-align: center;
+    margin: 0 auto 80 px;
+    position: relative;
+    line-height: 100px;
+}
+
+.fotoscds{
+    text-align: center;
+}
+
+.fotoscds img{
+    max-width: 15%;
+    box-shadow: 0 0 5px #39f186,
+                0 0 25px #39f186,
+                0 0 50px #39f186;
+    padding-left: 5x;
+    padding-right: 5px;
+}
+
+.parte3{
+    background: radial-gradient(#3d1e05 , #000000);
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.col1-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+.col1-4 img{
+    width: 60%;
+    box-shadow: 0 0 5px #eebd36,
+                0 0 25px #eebd36,
+                0 0 50px #eebd36;
+}
+
+.pie{
+    background: radial-gradient(#09000a , #000000);
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.pie h5 {
+    color: #ffffff;
+    text-decoration: none;
+
+}
+</style>
