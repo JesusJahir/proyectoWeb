@@ -31,7 +31,7 @@
                     <div class="inputBox">
                         <input class="search-text" type="text" name="searchText" id="searchText" ref="searchText" placeholder="Búsqueda de producto" v-model="searchText"/>
                         <button class="search-button" v-on:click ="searchProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
-                        <button class="search-clean-button" v-on:click ="cleanSearch">Limpiar</button>
+                        <button class="search-clean-button" v-on:click ="cleanSearch">Limpiar búsqueda</button>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
                 <div class="fila">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                        <a href="#top"> Click para ver la parte superior </a> </h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">
@@ -554,6 +554,28 @@ input[type="button"]:hover{
 .catalog-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.search-clean-button{
+    background: none;
+    border: 1px;
+    display: inline-block;
+    color: #f44f03;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    padding: 5px 5px;
+    margin: 12px;
+}
+
+.search-clean-button:hover{
+    background:  #f46303;
+    color: #050801;
+    box-shadow: 0 0 5px #f46303,
+                0 0 25px #f46303,
+                0 0 50px #f46303,
+                0 0 150px #f46303;
 }
 
 </style>
