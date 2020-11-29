@@ -22,7 +22,7 @@
                         <h1> Bienvenido, ingresa a tu cuenta </h1>
                         <form action="">
                         <div class="inputBox">
-                            <input type="text" name="email" id="email" ref="mail" placeholder="email"/>
+                            <input type="username" name="username" id="username" ref="username" placeholder="username"/>
                         </div>
                         <div class="inputBox">
                             <input type="password" name="pass" id="pass" ref="pwd" placeholder="password"/>

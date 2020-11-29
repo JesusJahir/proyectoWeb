@@ -90,85 +90,84 @@
 import axios from 'axios'
 
 export default {
-    name: 'catalogo',
-    data () {
-        return {
-            products: null,
-            status: '',
-            orderByKey: '',
-            searchText: '',
-            totalPages: 0,
-        }
-    },
-    methods: {
-        getProducts: function (params) {
-            console.log(params)
-            axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
-                this.products = response.data.productos
-                this.status = response.data.status
-                this.totalPages = response.data.totalPages
-            })
-            .catch(e => {
-                this.errors.push(e)
-            })
-        },
-        searchProducts: function (event) {
-            /*
-                const requestToken = {'username': mail}
-                let tokenJWT = ''
-                axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
-                .then(response => {
-                    tokenJWT = response.data.token
-                })
-            */
-
-            // let searchText = this.$refs.searchText.value
-            this.orderByKey = ''
-
-            var params = {
-                'searchTerm': this.searchText
-            }
-
-            this.getProducts(params)
-        },
-
-        cleanSearch: function (event) {
-            this.searchText = ''
-            this.orderByKey = ''
-
-            var params = {
-                'searchTerm': this.searchText
-            }
-
-            this.getProducts(params)
-        },
-
-        orderBy(event) {
-            var params = {
-                'orderBy': event.target.value,
-                'searchTerm': this.searchText
-            }
-            this.getProducts(params)
-        },
-
-        goToPage: function (page) {
-            console.log('page ', page);
-
-            var params = {
-                'orderBy': this.orderByKey,
-                'searchTerm': this.searchText,
-                'currentPage': page
-            }
-
-            this.getProducts(params)
-        },
-    },
-
-    mounted () {
-        var params = {}
-        this.getProducts(params)
+  name: 'catalogo',
+  data () {
+    return {
+      products: null,
+      status: '',
+      orderByKey: '',
+      searchText: '',
+      totalPages: 0
     }
+  },
+  methods: {
+    getProducts: function (params) {
+      console.log(params)
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
+        this.products = response.data.productos
+        this.status = response.data.status
+        this.totalPages = response.data.totalPages
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    },
+    searchProducts: function (event) {
+    /*
+      const requestToken = {'username': mail}
+      let tokenJWT = ''
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
+      .then(response => {
+      tokenJWT = response.data.token
+      })
+    */
 
+    // let searchText = this.$refs.searchText.value
+      this.orderByKey = ''
+
+      var params = {
+        'searchTerm': this.searchText
+      }
+
+      this.getProducts(params)
+    },
+
+    cleanSearch: function (event) {
+      this.searchText = ''
+      this.orderByKey = ''
+
+      var params = {
+        'searchTerm': this.searchText
+      }
+
+      this.getProducts(params)
+    },
+
+    orderBy (event) {
+      var params = {
+        'orderBy': event.target.value,
+        'searchTerm': this.searchText
+      }
+      this.getProducts(params)
+    },
+
+    goToPage: function (page) {
+      console.log('page ', page)
+
+      var params = {
+        'orderBy': this.orderByKey,
+        'searchTerm': this.searchText,
+        'currentPage': page
+      }
+
+      this.getProducts(params)
+    }
+  },
+
+  mounted () {
+    var params = {}
+    this.getProducts(params)
+  }
 }
 </script>
 
