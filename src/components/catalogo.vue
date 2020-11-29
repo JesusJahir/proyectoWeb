@@ -18,26 +18,25 @@
 
                 <div class="fila">
                     <h2> Cat&aacute;logo de productos </h2>
-                    <select v-on:click ="getProducts" >
-                        <option> Destacados </option>
-                        <option> De mayor a menor precio </option>
-                        <option> De menor a mayor precio </option>
+
+                    <select @change="orderBy($event)" class="form-control" v-model="orderByKey">
+                        <option disabled value="">Seleccione un elemento</option>
+                        <option value="1">De mayor a menor precio</option>
+                        <option value="2">De menor a mayor precio</option>
                     </select>
                 </div>
                 <br><br>
 
                 <div class="fila">
                     <div class="inputBox">
-                        <input class="search-text" type="text" name="searchText" id="searchText" ref="searchText" placeholder="Búsqueda de producto"/>
-                        <button class="search-button" v-on:click ="getProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
+                        <input class="search-text" type="text" name="searchText" id="searchText" ref="searchText" placeholder="Búsqueda de producto" v-model="searchText"/>
+                        <button class="search-button" v-on:click ="searchProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
+                        <button class="search-clean-button" v-on:click ="cleanSearch">Limpiar</button>
                     </div>
                 </div>
 
-
-                <div v-if="status === false">
-                    No hay resultados
-                </div>
-                <div v-else class="catalog-grid"> 
+                <div v-if="status === false">No hay resultados</div>
+                <div v-else class="catalog-grid">
                     <div class="container" v-for="product in products" :key="product.id">
                         <div class="form">
                             <div class="fila">
@@ -49,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
 
             </div>
@@ -90,64 +89,72 @@
 </template>
 
 <script>
-
 import axios from 'axios'
 
-
 export default {
-    
-  name: 'catalogo',
-  data () {
-    return {
-        products: null,
-        status: ''
-    }
-  },
-
-  methods: {
-    getProducts: function (event) {
-
-/*
-      const requestToken = {'username': mail}
-      let tokenJWT = ''
-      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
-        .then(response => {
-          tokenJWT = response.data.token
-        })
-        */
-
-      let searchText = this.$refs.searchText.value
-      
-      const searchTerm = { 
-        'searchTerm': searchText,
+    name: 'catalogo',
+    data () {
+        return {
+            products: null,
+            status: '',
+            orderByKey: '',
+            searchText: ''
         }
-      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', searchTerm)
-        .then(response => {
-            console.log('success', response.data.status)
-            console.log('data', response.data.productos)
-            this.products = response.data.productos;
-            this.status = response.data.status;
-        })
-        .catch(e => {
-          this.errors.push(e)
-        })
-    }},
+    },
+    methods: {
+        getProducts: function (params) {
+            axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
+                this.products = response.data.productos
+                this.status = response.data.status
+            })
+            .catch(e => {
+                this.errors.push(e)
+            })
+        },
+        searchProducts: function (event) {
+            /*
+                const requestToken = {'username': mail}
+                let tokenJWT = ''
+                axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
+                .then(response => {
+                    tokenJWT = response.data.token
+                })
+            */
+
+            // let searchText = this.$refs.searchText.value
+            this.orderByKey = ''
+
+            var params = {
+                'searchTerm': this.searchText
+            }
+
+            this.getProducts(params)
+        },
+
+        cleanSearch: function (event) {
+            this.searchText = ''
+            this.orderByKey = ''
+
+            var params = {
+                'searchTerm': this.searchText
+            }
+
+            this.getProducts(params)
+        },
+
+        orderBy(event) {
+            var params = {
+                'orderBy': event.target.value,
+                'searchTerm': this.searchText
+            }
+            this.getProducts(params)
+        }
+    },
 
     mounted () {
-        axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo')
-        .then(response => {
-            console.log('success', response.data.status)
-            console.log('data', response.data.productos)
-            this.products = response.data.productos;
-            this.status = response.data.status;
-        })
-        .catch(e => {
-            this.errors.push(e)
-        })
+        var params = {}
+        this.getProducts(params)
     }
-    
-
-  // Fetches posts when the component is created.
 
 }
 </script>
