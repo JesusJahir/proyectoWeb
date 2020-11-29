@@ -67,10 +67,10 @@
                     </div>
                     <div class="col1">
                         S&iacute;guenos en redes <br>
-                        <img src="../assets/facebook.png" width="50px">
-                        <img src="../assets/Instagram.png" width="50px"> <br>
-                        <img src="../assets/Twitter.png" width="50px">
-                        <img src="../assets/Youtube.png" width="50px">
+                        <a href = "https://www.facebook.com/jesus.jahir.23"><img src="../assets/facebook.png" width="50px"></a>
+                        <a href = "https://www.instagram.com/jesusjahir/"><img src="../assets/Instagram.png" width="50px"> <br></a>
+                        <a href = "https://twitter.com/home"><img src="../assets/Twitter.png" width="50px"></a>
+                        <a href = "https://www.youtube.com/channel/UCoFU_sQUS3-d5iVjoPdHGxw?view_as=subscriber"><img src="../assets/Youtube.png" width="50px"></a>
                     </div>
                 </div>
             </div>
