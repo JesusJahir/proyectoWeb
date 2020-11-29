@@ -60,7 +60,7 @@
                 <div class="fila-2">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                        <A href="#top"> Click para ver la parte superior </A></h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">
@@ -247,7 +247,7 @@ p{
     justify-content: center;
     position: relative;
     width: 650px;
-    height: 800px;
+    min-height: 500px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
 }
@@ -284,7 +284,7 @@ p{
 }
 
 .form{
-    position: absolute;
+    position: relative;
     width: 100%;
     height: auto;
     padding: 20px;

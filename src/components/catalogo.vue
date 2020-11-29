@@ -24,6 +24,14 @@
                         <option> De menor a mayor precio </option>
                     </select>
                 </div>
+                <br><br>
+
+                <div class="fila">
+                    <div class="inputBox">
+                        <input class="search-text" type="text" name="prod" id="prod" ref="prod" placeholder="Búsqueda de producto"/>
+                        <button class="search-button"><img src="../assets/lupa.png" width="40px" height="40px"></button>
+                    </div>
+                </div>
 
                 <div class="body2">
                     <div class="container">
@@ -377,6 +385,11 @@ p{
     margin: auto;
 }
 
+.container img{
+    width: auto;
+    max-width: 100%;
+}
+
 .container:before{
     content: "";
     position: absolute;
@@ -582,6 +595,21 @@ input[type="button"]:hover{
 .page-but span:hover{
     background: #03e9f4;
     color: #000000;
+}
+
+.search-text{
+    max-width: 80%;
+}
+
+.search-button{
+    top: 12px;
+    position: relative;
+    background: none;
+    border: 0;
+}
+
+.search-text::placeholder{
+    color: rgba(150, 150, 150, 0.6);
 }
 
 </style>
