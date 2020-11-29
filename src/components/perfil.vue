@@ -8,190 +8,106 @@
                     </div>
                     <nav>
                         <ul>
-                            <li><router-link to="/">Home</router-link></li>
-                            <li><router-link to="/catalogo">Catalogo</router-link></li>
-                            <li><router-link to="/">Cerrar sesión</router-link></li>
+                            <li><a href="index.html"> Home </a></li>
+                            <li><a href="catalogo.html"> Cat&aacute;logo </a></li>
+                            <li><a href=""> Contacto </a></li>
                         </ul>
                     </nav>
-                    <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
+                    <img src="../assets/bolsa.png" width="30px" height="30px">
                 </div>
+
+                <div class="fila-2">
+                    <h2> Mi cuenta </h2>
+                </div>
+                <br><br>
 
                 <div class="fila">
-                    <h2> Cat&aacute;logo de productos </h2>
-                    <select>
-                        <option> Destacados </option>
-                        <option> De mayor a menor precio </option>
-                        <option> De menor a mayor precio </option>
-                    </select>
+                    <div class="col-2">
+                        <h2> Nombre: </h2> <br>
+                        <h2> Apellido: </h2> <br><br>
+                        <h2> Fecha de nacimiento: </h2> <br><br>
+                    </div>
+                    <div class="col-2">
+                        <h2> Email: </h2> <br>
+                        <h2> Teléfono: </h2> <br><br>
+                        <h2> Artista favorito: </h2> <br><br>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="fila-2">
+                    <h2> Mis pedidos </h2>
                 </div>
 
                 <div class="body2">
                     <div class="container">
                         <div class="form">
                             <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
+                                <h3> Orden No. #### </h3> <h3> Total: $$$$$</h3>
                             </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
+                            <br>
                             <div class="fila">
                                 <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
+                                    <img src="../assets/KP.jpg">
+                                </div>
+                                <div class="col-2">
+                                    <h2> Nombre de producto </h2> <br>
+                                    <h2> Precio </h2> <br><br>
+                                    <h2> Cantidad </h2> <br><br>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
+                            <br>
                             <div class="fila">
                                 <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
+                                    <img src="../assets/KP.jpg">
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
                                 <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
+                                    <h2> Nombre de producto </h2> <br>
+                                    <h2> Precio </h2> <br><br>
+                                    <h2> Cantidad </h2> <br><br>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <A href = "product.html"><img src="../assets/KP.jpg"></A>
-                                    <h1> Nombre de producto </h1>
-                                    <p> $$$Precio </p> <br>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="page-but">
-                <br>
-                <span> 1 </span>
-                <span> 2 </span>
-                <span> 3 </span>
-                <span> 4 </span>
-                <span> 5 </span>
-                <span> &#8594; </span>
-            </div>
-            <br>
+                <div class="body2">
+                    <div class="container">
+                        <div class="form">
+                            <div class="fila">
+                                <h3> Orden No. #### </h3> <h3> Total: $$$$$</h3>
+                            </div>
+                            <br>
+                            <div class="fila">
+                                <div class="col-2">
+                                    <img src="../assets/KP.jpg">
+                                </div>
+                                <div class="col-2">
+                                    <h2> Nombre de producto </h2> <br>
+                                    <h2> Precio </h2> <br><br>
+                                    <h2> Cantidad </h2> <br><br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="fila">
+                                <div class="col-2">
+                                    <img src="../assets/KP.jpg">
+                                </div>
+                                <div class="col-2">
+                                    <h2> Nombre de producto </h2> <br>
+                                    <h2> Precio </h2> <br><br>
+                                    <h2> Cantidad </h2> <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>.
         </div>
 
         <div class="pie">
             <div class="contenedor_pie">
-                <div class="fila">
+                <div class="fila-2">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
                         <A href="#top"> Click para ver la parte superior </A> </h5>
@@ -209,13 +125,14 @@
                 </div>
             </div>
         </div>
+
     </body>
 </template>
 
 <script>
 export default {
 
-  name: 'catalogo',
+  name: 'loggedIndex',
   data () {
     return {
 
@@ -239,10 +156,11 @@ body{
 .body2{
     color: #ffffff;
     margin: 70px;
-    padding: 10px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5px;
     font-family: "Segoe UI";
 }
 
@@ -320,6 +238,14 @@ p{
     align-items: center;
     flex: wrap;
     justify-content: space-around;
+    border-bottom: 2px solid #ffffff;
+}
+
+.fila-2{
+    display: flex;
+    align-items: center;
+    flex: wrap;
+    justify-content: space-around;
 }
 
 .col-2{
@@ -328,7 +254,7 @@ p{
 }
 
 .col-2 img{
-    width: 200px;
+    width: 100px;
     padding: 10px 10px;
 }
 
@@ -336,6 +262,11 @@ p{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
+}
+
+.col-2 h2{
+    font-size: 15px;
+    line-height: 10px;
 }
 
 .but{
@@ -370,11 +301,10 @@ p{
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 250px;
-    min-height: 380px;
+    width: 650px;
+    height: 400px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
-    margin: auto;
 }
 
 .container:before{
@@ -394,9 +324,9 @@ p{
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(45deg, #ff00ff, #0044ff);
+    background: linear-gradient(45deg, #00ff80, #ff00d4);
     pointer-events: none;
-    animation: animate 10s linear infinite;
+    animation: animate 5s linear infinite;
 }
 
 @keyframes animate{
@@ -409,10 +339,9 @@ p{
 }
 
 .form{
-    margin: auto;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     padding: 20px;
     box-sizing: border-box;
     z-index: 1;
@@ -421,9 +350,9 @@ p{
 .form h1{
     margin: 0;
     padding: 0;
-    color: #ffffff;
-    font-size: 15px;
-    text-align: center;
+    color: #2962ff;
+    font-size: 25px;
+    text-align: right;
 
 }
 
@@ -436,11 +365,11 @@ p{
 }
 
 .form h3{
-    text-align: left;
+    text-align: right;
     margin: 0;
     padding: 0;
-    color: #d4d4d4;
-    font-size: 10px;
+    color: #09c4dd;
+    font-size: 25px;
 }
 
 .form .inputBox{
@@ -567,21 +496,4 @@ input[type="button"]:hover{
                 0 0 50px #03e9f4,
                 0 0 150px #03e9f4;
 }
-
-.page-but span{
-    display: inline-block;
-    border: 1px solid#03e9f4;
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-}
-
-.page-but span:hover{
-    background: #03e9f4;
-    color: #000000;
-}
-
 </style>

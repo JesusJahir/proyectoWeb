@@ -7,6 +7,7 @@ import creaCuenta from '@/components/creaCuenta'
 import catalogo from '@/components/catalogo'
 import product from '@/components/product'
 import carrito from '@/components/carrito'
+import perfil from '@/components/perfil'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
       path: '/carrito',
       name: 'carrito',
       component: carrito
+    },
+    {
+      path: '/perfil',
+      name: 'perfil',
+      component: perfil
     }
   ]
 })

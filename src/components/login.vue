@@ -8,9 +8,9 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="index.html"> Home  </a></li>
-                        <li><a href=""> Cat&aacute;logo </a></li>
-                        <li><a href=""> Contacto </a></li>
+                        <li><router-link to="/">Home</router-link></li>
+                        <li><router-link to="/catalogo">Catalogo</router-link></li>
+                        <li><router-link to="/creaCuenta">Regístrate</router-link></li>
                     </ul>
                 </nav>
                 <img src="../assets/bolsa.png" width="30px" height="30px">

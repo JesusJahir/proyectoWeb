@@ -4,16 +4,16 @@
             <div class="container1">
                 <div class="menubar">
                     <div class="logo">
-                        <img src="ima_index/logot.gif" width="200px">
+                        <img src="../assets/logot.gif" width="200px">
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="index.html"> Home </a></li>
-                            <li><a href="catalogo.html"> Cat&aacute;logo </a></li>
-                            <li><a href=""> Contacto </a></li>
+                            <li><router-link to="/">Home</router-link></li>
+                            <li><router-link to="/catalogo">Catalogo</router-link></li>
+                            <li><a href=""> Perfil </a></li>
                         </ul>
                     </nav>
-                    <img src="ima_index/bolsa.png" width="30px" height="30px">
+                    <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
                 </div>
 
                 <div class="fila-2">
@@ -25,7 +25,7 @@
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <img src="ima_index/KP.jpg">
+                                    <img src="../assets/KP.jpg">
                                 </div>
                                 <div class="col-2">
                                     <h2> Nombre de producto </h2> <br>
@@ -36,7 +36,7 @@
                             <br>
                             <div class="fila">
                                 <div class="col-2">
-                                    <img src="ima_index/KP.jpg">
+                                    <img src="../assets/KP.jpg">
                                 </div>
                                 <div class="col-2">
                                     <h2> Nombre de producto </h2> <br>
@@ -63,14 +63,14 @@
                         <A href="#top"> Click para ver la parte superior </A> </h5>
                     </div>
                     <div class="col1">
-                        <img src="ima_index/logot.gif" width="200px">
+                        <img src="../assets/logot.gif" width="200px">
                     </div>
                     <div class="col1">
                         S&iacute;guenos en redes <br>
-                        <img src="facebook.PNG" width="50px">
-                        <img src="Instagram.PNG" width="50px"> <br>
-                        <img src="Twitter.PNG" width="50px">
-                        <img src="Youtube.PNG" width="50px">
+                        <img src="../assets/facebook.png" width="50px">
+                        <img src="../assets/Instagram.png" width="50px"> <br>
+                        <img src="../assets/Twitter.png" width="50px">
+                        <img src="../assets/Youtube.png" width="50px">
                     </div>
                 </div>
             </div>

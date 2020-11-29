@@ -8,13 +8,13 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="logged_index.html"> Home </a></li>
-                        <li><a href=""> Cat&aacute;logo </a></li>
+                        <li><router-link to="/">Home</router-link></li>
+                        <li><router-link to="/catalogo">Catalogo</router-link></li>
                         <li><a href=""> Tu Perfil </a></li>
-                        <li>Hola, Jesús Jahir</li>
+                        <li>Hola, NOMBRE</li>
                     </ul>
                 </nav>
-                <img src="../assets/bolsa.png" width="30px" height="30px">
+                <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
             </div>
 
             <div class="fila">
