@@ -10,7 +10,6 @@ import carrito from '@/components/carrito'
 
 Vue.use(Router)
 
-
 export default new Router({
   routes: [
     {
