@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="fila">
-                    <h2> Nombre de producto </h2>
+                    <h2> Nombre de producto {{product.name}}</h2>
                 </div>
 
                 <div class="body2">
@@ -77,13 +77,30 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default {
   name: 'product',
   data () {
     return {
-
+      product: {
+          name: null
+      }
     }
+  },
+  mounted () {
+    var params = {
+      'productId':  this.$route.params.Pid
+    }
+
+    axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
+      console.log(response.data)
+      this.product = response.data.productos[0]
+      this.status = response.data.status
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
   }
 }
 </script>

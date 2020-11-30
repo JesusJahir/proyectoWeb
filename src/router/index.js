@@ -44,7 +44,7 @@ export default new Router({
       component: catalogo
     },
     {
-      path: '/product',
+      path: '/product/:Pid',
       name: 'product',
       component: product
     },

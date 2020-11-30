@@ -41,6 +41,9 @@
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
+                                    <div v-on:click ="goToProduct(product.id)">
+                                    GO     
+                                    </div>
                                     <a href = "product.html">
                                         <img v-if="product.image != ''" :src="product.image">
                                         <img v-else src="../assets/cd_default.jpg">
@@ -103,7 +106,6 @@ export default {
   },
   methods: {
     getProducts: function (params) {
-      console.log(params)
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
         this.products = response.data.productos
         this.status = response.data.status
@@ -162,9 +164,11 @@ export default {
       }
 
       this.getProducts(params)
+    },
+    goToProduct: function (id) {
+      this.$router.push({name:'product',params:{Pid:id}})
     }
   },
-
   mounted () {
     var params = {}
     this.getProducts(params)
