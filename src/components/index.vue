@@ -105,23 +105,31 @@
             <h3 class="title"> Productos relevantes </h3>
             <div class="fila">
                 <div class="col1-4">
-                    <img src="../assets/ironmaiden.jpg">
+                    <a v-on:click ="goToProduct(59)">
+                      <img src="../assets/ironmaiden.jpg">
+                    </a>
                     <h4>Powerslave - Iron Maiden </h4>
-                    <p>$11.99</p>
+                    <p>$15.99</p>
                 </div>
                 <div class="col1-4">
-                    <img src="../assets/imaginedragons.jpg">
+                    <a v-on:click ="goToProduct(57)">
+                      <img src="../assets/imaginedragons.jpg">
+                    </a>
                     <h4>Evolve - Imagine Dragons </h4>
-                    <p>$11.99</p>
+                    <p>$9.99</p>
                 </div>
                 <div class="col1-4">
-                    <img src="../assets/lorde.jpg">
+                    <a v-on:click ="goToProduct(80)">
+                      <img src="../assets/lorde.jpg">
+                    </a>
                     <h4>Melodrama - Lorde </h4>
                     <p>$11.99</p>
                 </div>
                 <div class="col1-4">
-                    <img src="../assets/maroon5.jpg">
-                    <h4>V (Deluxe Edition) - Maroon 5 </h4>
+                    <a v-on:click ="goToProduct(5)">
+                      <img src="https://www.covercentury.com/covers/audio/a/Adele-02TwentyOne.jpg">
+                    </a>
+                    <h4>21 - Adele </h4>
                     <p>$12.99</p>
                 </div>
             </div>
@@ -153,11 +161,24 @@
 <script>
 export default {
 
-  name: 'loggedIndex',
+  name: 'index',
   data () {
     return {
-
+      products: null,
+      status: '',
+      orderByKey: '',
+      searchText: '',
+      totalPages: 0
     }
+  },
+  methods: {
+    goToProduct: function (id) {
+      this.$router.push({name: 'product', params: {Pid: id}})
+    }
+  },
+  mounted () {
+    var params = {}
+    this.getProducts(params)
   }
 }
 </script>

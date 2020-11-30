@@ -1,6 +1,6 @@
 <template>
     <body>
-        <div class="header"> <A name = "top"> </A>
+        <div class="header"> <a name = "top"> </a>
             <div class="container1">
                 <div class="menubar">
                     <div class="logo">
@@ -8,16 +8,16 @@
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="index.html"> Home </a></li>
-                            <li><a href="catalogo.html"> Cat&aacute;logo </a></li>
-                            <li><a href=""> Contacto </a></li>
+                            <li><router-link to="/">Home</router-link></li>
+                            <li><router-link to="/catalogo">Catalogo</router-link></li>
+                            <li><router-link to="/">Cerrar sesión</router-link></li>
                         </ul>
                     </nav>
                     <img src="../assets/bolsa.png" width="30px" height="30px">
                 </div>
 
                 <div class="fila">
-                    <h2> Nombre de producto {{product.name}}</h2>
+                    <h2> {{product.title}} </h2>
                 </div>
 
                 <div class="body2">
@@ -25,10 +25,13 @@
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <img src="../assets/KP.jpg">
+                                    <img v-if="product.image != ''" :src="product.image">
+                                    <img v-else src="../assets/cd_default.jpg">
                                 </div>
                                 <div class="col-2">
-                                    <h2> Tracklist <br>
+                                    <h5> {{product.artist}} </h5> <br>
+                                    <h2> {{product.description}} <br><br>
+                                    Tracklist <br>
                                     Tracklist<br>
                                     Tracklist<br>
                                     Tracklist<br>
@@ -48,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-            </div>>
+            </div>
 
         </div>
 
@@ -84,13 +87,13 @@ export default {
   data () {
     return {
       product: {
-          name: null
+        name: null
       }
     }
   },
   mounted () {
     var params = {
-      'productId':  this.$route.params.Pid
+      'productId': this.$route.params.Pid
     }
 
     axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcatalogo', params).then(response => {
@@ -98,9 +101,9 @@ export default {
       this.product = response.data.productos[0]
       this.status = response.data.status
     })
-    .catch(e => {
-      this.errors.push(e)
-    })
+      .catch(e => {
+        this.errors.push(e)
+      })
   }
 }
 </script>
@@ -120,6 +123,7 @@ body{
 .body2{
     color: #ffffff;
     margin: 70px;
+    margin-bottom: 0;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -202,6 +206,11 @@ p{
     align-items: center;
     flex: wrap;
     justify-content: space-around;
+}
+
+.fila h2{
+    color: #ffffff;
+    font-size: 40px;;
 }
 
 .col-2{
@@ -323,6 +332,14 @@ p{
     padding: 0;
     color: #d4d4d4;
     font-size: 10px;
+}
+
+.form h5{
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    color: #01aaf8;
+    font-size: 20px;
 }
 
 .form .inputBox{

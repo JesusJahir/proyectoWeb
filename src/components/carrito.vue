@@ -10,7 +10,7 @@
                         <ul>
                             <li><router-link to="/">Home</router-link></li>
                             <li><router-link to="/catalogo">Catalogo</router-link></li>
-                            <li><a href=""> Perfil </a></li>
+                            <li><router-link to="/perfil">Mi cuenta</router-link></li>
                         </ul>
                     </nav>
                     <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-            </div>.
+            </div>
         </div>
 
         <div class="pie">
@@ -106,6 +106,7 @@ body{
 .body2{
     color: #ffffff;
     margin: 70px;
+    margin-bottom: 0;
     padding: 0;
     display: flex;
     justify-content: center;

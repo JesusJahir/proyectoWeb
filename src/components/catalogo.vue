@@ -41,16 +41,13 @@
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <div v-on:click ="goToProduct(product.id)">
-                                    GO     
-                                    </div>
-                                    <a href = "product.html">
+                                    <a v-on:click ="goToProduct(product.id)">
                                         <img v-if="product.image != ''" :src="product.image">
                                         <img v-else src="../assets/cd_default.jpg">
                                     </a>
-                                    <h4> {{product.artist}} </h4> <br>
-                                    <h5> {{product.title}} </h5> <br>
-                                    <p> ${{product.price}} </p> <br>
+                                    <h4> {{product.artist}} </h4>
+                                    <h5> {{product.title}} </h5>
+                                    <p> ${{product.price}} </p>
                                     <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
                                 </div>
                             </div>
@@ -166,7 +163,7 @@ export default {
       this.getProducts(params)
     },
     goToProduct: function (id) {
-      this.$router.push({name:'product',params:{Pid:id}})
+      this.$router.push({name: 'product', params: {Pid: id}})
     }
   },
   mounted () {
@@ -328,6 +325,7 @@ p{
     background: rgba(255,255,255,0.5);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
     margin: auto;
+    margin-bottom: 70px;
 }
 
 .container img{
@@ -406,7 +404,7 @@ p{
     margin: 0;
     padding: 0;
     color: #3f038f;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .form h5{
@@ -414,7 +412,7 @@ p{
     margin: 0;
     padding: 0;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .form .inputBox{
