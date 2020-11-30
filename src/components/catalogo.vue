@@ -45,7 +45,8 @@
                                         <img v-if="product.image != ''" :src="product.image">
                                         <img v-else src="../assets/cd_default.jpg">
                                     </a>
-                                    <h1> {{product.name}} </h1>
+                                    <h4> {{product.artist}} </h4> <br>
+                                    <h5> {{product.title}} </h5> <br>
                                     <p> ${{product.price}} </p> <br>
                                     <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
                                 </div>
@@ -280,8 +281,9 @@ p{
 }
 
 .col-2 h1{
+    color: #050801;
     font-size: 50px;
-    line-height: 60px;
+    line-height: 20px;
     margin: 25px 0;
 }
 
@@ -393,6 +395,22 @@ p{
     padding: 0;
     color: #d4d4d4;
     font-size: 10px;
+}
+
+.form h4{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #3f038f;
+    font-size: 17px;
+}
+
+.form h5{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 15px;
 }
 
 .form .inputBox{
