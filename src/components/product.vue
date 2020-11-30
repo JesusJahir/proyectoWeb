@@ -30,20 +30,15 @@
                                 </div>
                                 <div class="col-2">
                                     <h5> {{product.artist}} </h5> <br>
-                                    <h2> {{product.description}} <br><br>
-                                    Tracklist <br>
-                                    Tracklist<br>
-                                    Tracklist<br>
-                                    Tracklist<br>
-                                    Tracklist<br>
-                                    Tracklist<br>
-                                    Tracklist</h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h3>Producto sujeto a disponibilidad y hasta agotar existencias<br>
-                                        Costo de envío 59 pesos. Envío Gratis en montos mayores a 750. Aplica a partir del 1 de diciembre. <br>
-                                        Todos nuestros envíos van asegurados. <br>
-                                        Nuestros tiempo de entrega promedio, son de 3 a 7 días. Aplica a partir del 14 de Noviembre. <br>
-                                        En algunos casos, pueden llegar a ser de 45 días dependiendo de la disponibilidad.</h3>
+                                    <h2> {{product.description}} <br><br><br>
+                                    Tracklist: <br><br>
+                                    {{product.tracklist}}
+                                    </h2> <br>
+                                    <h4> ${{product.price}} </h4> <br>
+                                    <h3>Producto sujeto a disponibilidad y hasta agotar existencias.<br>
+                                        Envío Gratis en montos mayores a $50. Aplica a partir del 1 de diciembre. <br>
+                                        Nuestros tiempo de entrega promedio, son de 3 a 7 días. Aplica a partir del 1 de Diciembre. <br>
+                                        En algunos casos, pueden llegar a ser de 15 días dependiendo de la disponibilidad.</h3>
                                 </div>
                             </div>
                             <br><br>
@@ -334,12 +329,20 @@ p{
     font-size: 10px;
 }
 
+.form h4{
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+    font-size: 20px;
+}
+
 .form h5{
     text-align: left;
     margin: 0;
     padding: 0;
-    color: #01aaf8;
-    font-size: 20px;
+    color: #1d1616;
+    font-size: 25px;
 }
 
 .form .inputBox{
