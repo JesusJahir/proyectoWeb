@@ -50,7 +50,6 @@ export default {
   data () {
     return {
       msg: '',
-
       posts: [],
       errors: []
     }
@@ -63,24 +62,25 @@ export default {
       let tokenJWT = ''
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
         .then(response => {
+          console.log(response.data)
           tokenJWT = response.data.token
-        })
 
-      let pwd = this.$refs.pwd.value
-      const article = { 'mail': mail,
-        'password': pwd,
-        'token': tokenJWT}
-      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/logina01378845', article)
-        .then(response => {
-          // JSON responses are automatically parsed.
-          if (response.data.login === 'success') {
-            this.$router.push('loggedIndex')
-          } else {
-            alert('Error de login, intenta de nuevo')
-          }
-        })
-        .catch(e => {
-          this.errors.push(e)
+          let pwd = this.$refs.pwd.value
+          const article = { 'mail': mail,
+            'password': pwd,
+            'token': tokenJWT}
+          axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/logina01378845', article)
+            .then(response => {
+              // JSON responses are automatically parsed.
+              if (response.data.login === 'success') {
+                this.$router.push('loggedIndex')
+              } else {
+                alert('Error de login, intenta de nuevo')
+              }
+            })
+            .catch(e => {
+              this.errors.push(e)
+            })
         })
     }}
 
