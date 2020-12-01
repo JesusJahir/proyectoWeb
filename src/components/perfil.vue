@@ -17,20 +17,20 @@
                 </div>
 
                 <div class="fila-2">
-                    <h2> Mi cuenta </h2>
+                    <h6> Mi cuenta </h6>
                 </div>
                 <br><br>
 
                 <div class="fila">
                     <div class="col-2">
-                        <h2> Nombre: </h2> <br>
-                        <h2> Apellido: </h2> <br><br>
-                        <h2> Fecha de nacimiento: </h2> <br><br>
+                        <h2> <i>Nombre:</i> <b>{{userd.nombre}}</b></h2> <br>
+                        <h2> Apellidos: {{userd.apellidoPaterno}} {{userd.apellidoMaterno}}</h2> <br><br>
+                        <h2> Fecha de nacimiento: {{userd.birth}} </h2> <br><br>
                     </div>
                     <div class="col-2">
-                        <h2> Email: </h2> <br>
-                        <h2> Teléfono: </h2> <br><br>
-                        <h2> Artista favorito: </h2> <br><br>
+                        <h2> Email: {{userd.email}}</h2> <br>
+                        <h2> Teléfono: {{userd.telefono}}</h2> <br><br>
+                        <h2> Artista favorito: {{userd.artistaF}}</h2> <br><br>
                     </div>
                 </div>
                 <br><br>
@@ -130,13 +130,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 
-  name: 'loggedIndex',
+  name: 'userd',
   data () {
     return {
-
+      userd: {
+        name: null
+      }
     }
+  },
+  mounted () {
+    var params = {
+      username: 'JesusJahir'
+    }
+
+    axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getuser', params).then(response => {
+      console.log(response.data)
+      this.userd = response.data.userdata
+    })
+      .catch(e => {
+        this.errors.push(e)
+      })
   }
 }
 </script>
@@ -248,6 +264,10 @@ p{
     justify-content: space-around;
 }
 
+.fila-2 h6{
+    font-size: 35px;
+}
+
 .col-2{
     flex-basis: 100%;
     min-width: 100px
@@ -265,8 +285,10 @@ p{
 }
 
 .col-2 h2{
-    font-size: 15px;
+    text-align: center;
+    font-size: 18px;
     line-height: 10px;
+    color: #fa76ef;
 }
 
 .but{

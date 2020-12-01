@@ -8,6 +8,7 @@ import catalogo from '@/components/catalogo'
 import product from '@/components/product'
 import carrito from '@/components/carrito'
 import perfil from '@/components/perfil'
+import editUserData from '@/components/editUserData'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/perfil',
       name: 'perfil',
       component: perfil
+    },
+    {
+      path: '/editUserData',
+      name: 'editUserData',
+      component: editUserData
     }
   ]
 })

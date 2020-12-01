@@ -256,7 +256,6 @@ p{
     align-items: center;
     justify-content: center;
     position: relative;
-    position: relative;
     width: 650px;
     min-height: 500px;
     background: rgba(255,255,255,0.5);
