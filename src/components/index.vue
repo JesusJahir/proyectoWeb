@@ -1,6 +1,6 @@
 <template>
     <body>
-        <div class="header"> <A name = "top"> </A>
+        <div class="header"> <a name = "top"> </a>
             <div class="container1">
                 <div class="menubar">
                     <div class="logo">
@@ -20,7 +20,7 @@
                 <div class="fila">
                     <div class="col2">
                         <h1> ¡SMILE <br> ya disponible!</h1>
-                        <p>El nuevo &aacute;lbum de Katy Perry, incluye los hits: <br>
+                        <p>El nuevo álbum de Katy Perry, incluye los hits: <br>
                             <ol>
                                 <li> Never Really Over </li>
                                 <li> Daisies </li>
@@ -28,9 +28,8 @@
                                 <li> Harleys in Hawaii </li>
                             </ol>
                         </p>
-                        <a href="" class="but">
+                        <a class="but" v-on:click ="goToProduct(76)">
                             ¡C&oacute;mpralo ya!
-
                         </a>
                     </div>
 
@@ -140,7 +139,7 @@
                 <div class="fila">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                        <a href="#top"> Click para ver la parte superior </a> </h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">
@@ -164,21 +163,12 @@ export default {
   name: 'index',
   data () {
     return {
-      products: null,
-      status: '',
-      orderByKey: '',
-      searchText: '',
-      totalPages: 0
     }
   },
   methods: {
     goToProduct: function (id) {
       this.$router.push({name: 'product', params: {Pid: id}})
     }
-  },
-  mounted () {
-    var params = {}
-    this.getProducts(params)
   }
 }
 </script>
@@ -274,6 +264,12 @@ p{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
+}
+
+.col2 ol li{
+    align-content: center;
+    margin: auto;
+    width: 30%;
 }
 
 .but{
@@ -401,4 +397,5 @@ table {
     text-decoration: none;
 
 }
+
 </style>

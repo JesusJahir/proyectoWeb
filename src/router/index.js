@@ -9,6 +9,7 @@ import product from '@/components/product'
 import carrito from '@/components/carrito'
 import perfil from '@/components/perfil'
 import editUserData from '@/components/editUserData'
+import changePassword from '@/components/changePassword'
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
       path: '/editUserData',
       name: 'editUserData',
       component: editUserData
+    },
+    {
+      path: '/changePassword',
+      name: 'changePassword',
+      component: changePassword
     }
   ]
 })

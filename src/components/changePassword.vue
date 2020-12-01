@@ -28,9 +28,8 @@
                             <input type="password" name="pass" id="pass" ref="pwd" placeholder="password"/>
                         </div>
                         <div class="inputBox">
-                            <input type="button" id="bot" name="bot" value="Login" v-on:click ="login"/>
+                            <input type="button" id="bot" name="bot" value="Cambiar contraseña" v-on:click ="changepass"/>
                         </div>
-                        <p>¿Olvidaste tu password? <router-link to="/changePassword">Da click aquí</router-link></p>
                         </form>
                     </div>
                 </div>
@@ -45,47 +44,33 @@
 import axios from 'axios'
 
 export default {
-
-  name: 'login',
+  name: 'changePassword',
   data () {
-    return {
-      msg: '',
-
-      posts: [],
-      errors: []
-    }
+    return {}
   },
   methods: {
-    login: function (event) {
-      let mail = this.$refs.mail.value
-
-      const requestToken = {'username': mail}
-      let tokenJWT = ''
-      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
-        .then(response => {
-          tokenJWT = response.data.token
-        })
-
-      let pwd = this.$refs.pwd.value
-      const article = { 'mail': mail,
-        'password': pwd,
-        'token': tokenJWT}
-      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/logina01378845', article)
-        .then(response => {
-          // JSON responses are automatically parsed.
-          if (response.data.login === 'success') {
-            this.$router.push('loggedIndex')
+    changepass: function (event) {
+      let SendInfo = {
+        'username': this.$refs.mail.value,
+        'password': this.$refs.pwd.value
+      }
+      axios
+        .post(
+          'https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/changepassword',
+          SendInfo
+        )
+        .then((response) => {
+          if (response.data.result === 'success') {
+            this.$router.push('login')
           } else {
-            alert('Error de login, intenta de nuevo')
+            alert('Error al cambiar contraseña')
           }
         })
-        .catch(e => {
+        .catch((e) => {
           this.errors.push(e)
         })
-    }}
-
-  // Fetches posts when the component is created.
-
+    }
+  }
 }
 </script>
 
