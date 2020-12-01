@@ -33,6 +33,7 @@
                         <h2> Artista favorito: {{userd.artistaF}}</h2> <br><br>
                     </div>
                 </div>
+                <router-link to="/editUserData"><input type="button" id="bot" name="bot" value="Actualizar información"/></router-link>
                 <br><br>
 
                 <div class="fila-2">
@@ -102,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-            </div>.
+            </div>
         </div>
 
         <div class="pie">
@@ -172,6 +173,7 @@ body{
 .body2{
     color: #ffffff;
     margin: 70px;
+    margin-bottom: 0;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -346,9 +348,9 @@ p{
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(45deg, #00ff80, #ff00d4);
+    background: linear-gradient(45deg, #00aeff, #a10387);
     pointer-events: none;
-    animation: animate 5s linear infinite;
+    animation: animate 10s linear infinite;
 }
 
 @keyframes animate{
@@ -356,7 +358,7 @@ p{
         filter: blur(60px) hue-rotate(0deg);
     }
     100%{
-        filter: blur(60px) hue-rotate(30deg);
+        filter: blur(60px) hue-rotate(360deg);
     }
 }
 

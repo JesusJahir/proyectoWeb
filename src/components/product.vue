@@ -281,7 +281,7 @@ p{
     bottom: -5px;
     background: linear-gradient(45deg, #2bff00, #4c00ff);
     pointer-events: none;
-    animation: animate 5s linear infinite;
+    animation: animate 10s linear infinite;
 }
 
 @keyframes animate{
@@ -289,7 +289,7 @@ p{
         filter: blur(60px) hue-rotate(0deg);
     }
     100%{
-        filter: blur(60px) hue-rotate(30deg);
+        filter: blur(60px) hue-rotate(360deg);
     }
 }
 

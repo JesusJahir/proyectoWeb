@@ -255,9 +255,9 @@ p{
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(45deg, #ff0047, #6eff00);
+    background: linear-gradient(45deg, #ff00b3, #00ffff);
     pointer-events: none;
-    animation: animate 10s linear infinite;
+    animation: animate 12s linear infinite;
 }
 
 @keyframes animate{

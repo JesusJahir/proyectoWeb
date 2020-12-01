@@ -19,7 +19,7 @@
             <div class="body2">
                 <div class="container">
                     <div class="form">
-                        <h1> Bienvenido, ingresa a tu cuenta </h1>
+                        <h1> Ingresa tu usuario y nueva contraseña </h1>
                         <form action="">
                         <div class="inputBox">
                             <input type="mail" name="mail" id="mail" ref="mail" placeholder="username"/>
@@ -230,7 +230,7 @@ p{
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(45deg, #ff0047, #6eff00);
+    background: linear-gradient(45deg, #ff0000, #ffe600);
     pointer-events: none;
     animation: animate 10s linear infinite;
 }
