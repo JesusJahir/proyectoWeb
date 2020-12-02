@@ -1,6 +1,6 @@
 <template>
     <body>
-        <div class="header"> <A name = "top"> </A>
+        <div class="header"> <a name = "top"> </a>
             <div class="container1">
                 <div class="menubar">
                     <div class="logo">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="fila-2">
-                    <h2> Tu bolsa de compras</h2>
+                    <h6> Tu bolsa de compras</h6>
                 </div>
 
                 <div class="body2">
@@ -27,18 +27,24 @@
                                 <div class="form">
                                     <div class="fila" v-for="product in products" :key="product.id">
                                         <div class="col-2">
-                                        <h4> {{product.id}} </h4>
-                                        <h5> {{product.quantity}} </h5>
-                                        <p> ${{product.price}} </p>
-                                </div>
+                                            <img v-if="product.image != ''" :src="product.image">
+                                            <img v-else src="../assets/cd_default.jpg">
+                                        </div>
+                                        <div class="col-2">
+                                            <h2> {{product.title}} </h2>
+                                            <h5> {{product.artist}} </h5><br>
+                                            <h5> Cantidad: {{product.quantity}} </h5>
+                                            <p> Precio: ${{product.price}} </p><br>
+                                            <h4> Subtotal: ${{product.subtotal}} </h4>
+                                        </div>
+                                    </div>
+                                <div class="fila">
+                                    <h3> PRECIO TOTAL : ${{total}} </h3>
+                                </div><br><br>
+                                <input type="button" id="bot" name="bot" value="Pagar"/> <br>
                             </div>
-                            <div class="fila">
-                                <h3> PRECIO TOTAL : $$$$ </h3>
-                            </div><br><br>
-                            <input type="button" id="bot" name="bot" value="Pagar"/> <br>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -48,7 +54,7 @@
                 <div class="fila-2">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A></h5>
+                        <a href="#top"> Click para ver la parte superior </a></h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">
@@ -75,14 +81,16 @@ export default {
   data () {
     return {
       products: null,
-      status: ''
+      status: '',
+      total: ''
     }
   },
   methods: {
     getCarrito: function (params) {
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcarrito', params).then(response => {
-        this.products = response.data.carrito
+        this.products = response.data.productos
         this.status = response.data.status
+        this.total = response.data.total
       })
         .catch(e => {
           this.errors.push(e)
@@ -91,7 +99,7 @@ export default {
   },
   mounted () {
     var params = {
-      Id_user: '1'
+      Id_user: '7'
     }
     this.getCarrito(params)
   }
@@ -210,20 +218,42 @@ p{
     justify-content: space-around;
 }
 
+.fila-2 h6{
+    font-size: 35px;
+}
+
 .col-2{
     flex-basis: 100%;
     min-width: 100px
 }
 
 .col-2 img{
-    width: 100px;
+    width: 150px;
     padding: 10px 10px;
 }
 
-.col-2 h1{
+.fila .col-2 h1{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
+}
+
+.fila .col-2 h2{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.fila .col-2 h5{
+    font-size: 15px;
+    text-align: center;
+}
+
+.fila .col-2 h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: right;
 }
 
 .but{
