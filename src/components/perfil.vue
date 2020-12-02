@@ -138,8 +138,23 @@ export default {
   data () {
     return {
       userd: {
+        products: null,
         name: null
       }
+    }
+  },
+  methods: {
+    getVentas: function (params) {
+      var params = {
+        Id_user: '12'
+      }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getventasuser', params).then(response => {
+        this.products = response.data.productos
+        this.status = response.data.status
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   },
   mounted () {
