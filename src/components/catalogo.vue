@@ -48,7 +48,7 @@
                                     <h4> {{product.artist}} </h4>
                                     <h5> {{product.title}} </h5>
                                     <p> ${{product.price}} </p>
-                                    <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
+                                    <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa" v-on:click ="addToCart(product.id)"/> <br>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +164,18 @@ export default {
     },
     goToProduct: function (id) {
       this.$router.push({name: 'product', params: {Pid: id}})
+    },
+    addToCart: function (id) {
+      var params = {
+        'Id_prod': id,
+        'Id_user': '12'
+      }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/addtocart', params).then(response => {
+        alert('Producto agregado a tu bolsa')
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   },
   mounted () {
