@@ -99,7 +99,7 @@ export default {
   },
   mounted () {
     var params = {
-      Id_user: '7'
+      Id_user: '12'
     }
     this.getCarrito(params)
   }

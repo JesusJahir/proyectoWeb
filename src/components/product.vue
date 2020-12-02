@@ -13,7 +13,7 @@
                             <li><router-link to="/">Cerrar sesión</router-link></li>
                         </ul>
                     </nav>
-                    <img src="../assets/bolsa.png" width="30px" height="30px">
+                    <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
                 </div>
 
                 <div class="fila">
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <br><br>
-                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa"/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa" v-on:click ="addToCart()"/>
                         </div>
                     </div>
                 </div>
@@ -84,6 +84,20 @@ export default {
       product: {
         name: null
       }
+    }
+  },
+  methods: {
+    addToCart: function (event) {
+      var params = {
+        'Id_prod': this.$route.params.Pid,
+        'Id_user': '12'
+      }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/addtocart', params).then(response => {
+        alert('Producto agregado a tu bolsa')
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   },
   mounted () {

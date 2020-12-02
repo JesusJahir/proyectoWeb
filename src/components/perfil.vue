@@ -1,6 +1,6 @@
 <template>
     <body>
-        <div class="header"> <A name = "top"> </A>
+        <div class="header"> <a name = "top"> </a>
             <div class="container1">
                 <div class="menubar">
                     <div class="logo">
@@ -111,7 +111,7 @@
                 <div class="fila-2">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                        <a href="#top"> Click para ver la parte superior </a> </h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">
