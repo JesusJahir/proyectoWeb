@@ -54,6 +54,7 @@ export default {
       errors: []
     }
   },
+
   methods: {
     login: function (event) {
       let mail = this.$refs.mail.value
