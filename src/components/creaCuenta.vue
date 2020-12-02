@@ -87,6 +87,12 @@ export default {
         'birth': this.$refs.birth.value,
         'artistaF': this.$refs.artistaF.value
       }
+
+      axios
+        .post(
+          'https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/creacuentamysql',
+          SendInfo
+        )
       axios
         .post(
           'https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/creaCuentaA01378845',
@@ -96,7 +102,7 @@ export default {
           if (response.data.result === 'success') {
             this.$router.push('loggedIndex')
           } else {
-            alert('error de login')
+            alert('Error creando cuenta')
           }
         })
         .catch((e) => {
