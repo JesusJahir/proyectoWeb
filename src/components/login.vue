@@ -43,6 +43,7 @@
 
 <script>
 import axios from 'axios'
+// import VueCookies from 'vue-cookies'
 
 export default {
 
@@ -57,9 +58,27 @@ export default {
 
   methods: {
     login: function (event) {
-      let mail = this.$refs.mail.value
+      // const requestToken = {'username': mail}
+      const params = {
+        'username': this.$refs.mail.value,
+        'password': this.$refs.pwd.value
+      }
 
-      const requestToken = {'username': mail}
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/logina01378845', params)
+        .then(response => {
+          console.log(response.data)
+          if (response.data.login === 'success') {
+            this.$cookies.set('token', response.data.token)
+            this.$router.push('index')
+          } else {
+            alert('Error de login, intenta de nuevo')
+          }
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
+
+      /*
       let tokenJWT = ''
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', requestToken)
         .then(response => {
@@ -83,6 +102,7 @@ export default {
               this.errors.push(e)
             })
         })
+        */
     }}
 
   // Fetches posts when the component is created.

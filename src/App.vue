@@ -5,8 +5,33 @@
 </template>
 
 <script>
+// import axios from 'axios'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      msg: 'TESTasdasd'
+    }
+  },
+  mounted () {
+    /*
+    if($cookies.isKey('token')) {
+      console.log('existe la cookie')
+    } else {
+      console.log('no existe')
+    }
+
+    const token = this.$cookies.get('token')
+    console.log('token ', token)
+
+    axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', token)
+      .then(response => {
+        console.log('success', response.data)
+        tokenJWT = response.data.token
+      })
+    */
+  }
 }
 </script>
 

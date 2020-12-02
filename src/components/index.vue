@@ -169,6 +169,9 @@ export default {
     goToProduct: function (id) {
       this.$router.push({name: 'product', params: {Pid: id}})
     }
+  },
+  mounted () {
+    console.log(this.$parent.msg)
   }
 }
 </script>
