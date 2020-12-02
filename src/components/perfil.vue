@@ -37,7 +37,7 @@
                 <br><br>
 
                 <div class="fila-2">
-                    <h2> Mis pedidos </h2>
+                    <h2> Mis pedidos recientes </h2>
                 </div>
 
                 <div class="body2">
