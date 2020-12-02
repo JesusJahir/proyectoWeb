@@ -42,7 +42,7 @@
                                     <h3> PRECIO TOTAL : ${{total}} </h3>
                                 </div><br><br>
                                 <input class="mouse-hover" type="button-2" id="bot" name="bot" value="Borrar todos los productos del carrito" v-on:click ="deleteCarrito()"/> <br><br>
-                                <input class="mouse-hover" type="button" id="bot" name="bot" value="Pagar"/> <br>
+                                <input class="mouse-hover" type="button" id="bot" name="bot" value="Pagar" v-on:click ="generarVenta()"/> <br>
                             </div>
                         </div>
                     </div>
@@ -106,6 +106,20 @@ export default {
         this.status = ''
         this.total = ''
         alert('Todos los productos se han eliminado de tu bolsa')
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    },
+    generarVenta: function () {
+      var params = {
+        Id_user: '12',
+        total: this.total
+      }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/generarventa', params).then(response => {
+        this.products = response.data.productos
+        alert('Se ha realizado la compra exitosamente')
+        this.$router.push('home')
       })
         .catch(e => {
           this.errors.push(e)
