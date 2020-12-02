@@ -41,6 +41,7 @@
                                 <div class="fila">
                                     <h3> PRECIO TOTAL : ${{total}} </h3>
                                 </div><br><br>
+                                <input class="mouse-hover" type="button-2" id="bot" name="bot" value="Borrar todos los productos del carrito" v-on:click ="deleteCarrito()"/> <br><br>
                                 <input class="mouse-hover" type="button" id="bot" name="bot" value="Pagar"/> <br>
                             </div>
                         </div>
@@ -91,6 +92,20 @@ export default {
         this.products = response.data.productos
         this.status = response.data.status
         this.total = response.data.total
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    },
+    deleteCarrito: function () {
+      var params = {
+        Id_user: '12'
+      }
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/deleteallcart', params).then(response => {
+        this.products = null
+        this.status = ''
+        this.total = ''
+        alert('Todos los productos se han eliminado de tu bolsa')
       })
         .catch(e => {
           this.errors.push(e)
@@ -482,6 +497,27 @@ input[type="button"]:hover{
                 0 0 25px #03e9f4,
                 0 0 50px #03e9f4,
                 0 0 150px #03e9f4;
+}
+
+input[type="button-2"]{
+    text-align: center;
+    display: inline-block;
+    color: #680000;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    padding: 5px 5px;
+    margin: auto;
+}
+
+input[type="button-2"]:hover{
+    background: #ff0000;
+    color: #050801;
+    box-shadow: 0 0 5px #ff0000,
+                0 0 25px #ff0000,
+                0 0 50px #ff0000,
+                0 0 150px #ff0000;
 }
 
 </style>
