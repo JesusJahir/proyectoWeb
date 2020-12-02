@@ -17,40 +17,28 @@
                 </div>
 
                 <div class="fila-2">
-                    <h2> Tu bolsa de compras </h2>
+                    <h2> Tu bolsa de compras</h2>
                 </div>
 
                 <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
+                    <div v-if="status === false">No hay productos en tu bolsa :(</div>
+                        <div v-else class="catalog-grid">
+                            <div class="container">
+                                <div class="form">
+                                    <div class="fila" v-for="product in products" :key="product.id">
+                                        <div class="col-2">
+                                        <h4> {{product.id}} </h4>
+                                        <h5> {{product.quantity}} </h5>
+                                        <p> ${{product.price}} </p>
                                 </div>
                             </div>
                             <div class="fila">
                                 <h3> PRECIO TOTAL : $$$$ </h3>
-                            </div>
-                            <br><br>
-                            <input type="button" id="bot" name="bot" value="Pagar"/>
+                            </div><br><br>
+                            <input type="button" id="bot" name="bot" value="Pagar"/> <br>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -80,13 +68,32 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
-  name: 'loggedIndex',
+export default {
+  name: 'carrito',
   data () {
     return {
-
+      products: null,
+      status: ''
     }
+  },
+  methods: {
+    getCarrito: function (params) {
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcarrito', params).then(response => {
+        this.products = response.data.carrito
+        this.status = response.data.status
+      })
+        .catch(e => {
+          this.errors.push(e)
+        })
+    }
+  },
+  mounted () {
+    var params = {
+      Id_user: '1'
+    }
+    this.getCarrito(params)
   }
 }
 </script>
@@ -177,6 +184,10 @@ p{
     color: #ffffff;
 }
 
+.catalog-grid {
+    display: grid;
+}
+
 .container1{
     max-width: 1200px;
     margin: auto;
@@ -248,7 +259,7 @@ p{
     justify-content: center;
     position: relative;
     width: 650px;
-    min-height: 500px;
+    min-height: 50px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
 }
