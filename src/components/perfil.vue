@@ -24,13 +24,13 @@
                 <div class="fila">
                     <div class="col-2">
                         <h2> <i>Nombre:</i> <b>{{userd.nombre}}</b></h2> <br>
-                        <h2> Apellidos: {{userd.apellidoPaterno}} {{userd.apellidoMaterno}}</h2> <br><br>
-                        <h2> Fecha de nacimiento: {{userd.birth}} </h2> <br><br>
+                        <h2> <i>Apellidos:</i> {{userd.apellidoPaterno}} {{userd.apellidoMaterno}}</h2> <br><br>
+                        <h2> <i>Fecha de nacimiento:</i> {{userd.birth}} </h2> <br><br>
                     </div>
                     <div class="col-2">
-                        <h2> Email: {{userd.email}}</h2> <br>
-                        <h2> Teléfono: {{userd.telefono}}</h2> <br><br>
-                        <h2> Artista favorito: {{userd.artistaF}}</h2> <br><br>
+                        <h2> <i>Email:</i> {{userd.email}}</h2> <br>
+                        <h2> <i>Teléfono:</i> {{userd.telefono}}</h2> <br><br>
+                        <h2> <i>Artista favorito:</i> {{userd.artistaF}}</h2> <br><br>
                     </div>
                 </div>
                 <router-link to="/editUserData"><input class="mouse-hover" type="button" id="bot" name="bot" value="Actualizar información"/></router-link>
@@ -41,68 +41,29 @@
                 </div>
 
                 <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <h3> Orden No. #### </h3> <h3> Total: $$$$$</h3>
-                            </div>
-                            <br>
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
-                                </div>
+                    <div v-if="status === false">No has realizado ningún pedido</div>
+                        <div v-else class="catalog-grid">
+                            <div class="container">
+                                <div class="form">
+                                    <div class="fila" v-for="product in products" :key="product.id">
+                                        <div class="col-2">
+                                            <img v-if="product.image != ''" :src="product.image">
+                                            <img v-else src="../assets/cd_default.jpg">
+                                        </div>
+                                        <div class="col-2">
+                                            <h2> {{product.title}} </h2>
+                                            <h5> {{product.artist}} </h5><br>
+                                            <h5> Cantidad: {{product.quantity}} </h5>
+                                            <p> Precio: ${{product.price}} </p><br>
+                                            <h4> Subtotal: ${{product.subtotal}} </h4>
+                                        </div>
+                                    </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="body2">
-                    <div class="container">
-                        <div class="form">
-                            <div class="fila">
-                                <h3> Orden No. #### </h3> <h3> Total: $$$$$</h3>
-                            </div>
-                            <br>
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="fila">
-                                <div class="col-2">
-                                    <img src="../assets/KP.jpg">
-                                </div>
-                                <div class="col-2">
-                                    <h2> Nombre de producto </h2> <br>
-                                    <h2> Precio </h2> <br><br>
-                                    <h2> Cantidad </h2> <br><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -137,18 +98,17 @@ export default {
   name: 'userd',
   data () {
     return {
+      products: null,
+      status: '',
       userd: {
-        products: null,
         name: null
       }
     }
   },
   methods: {
     getVentas: function (params) {
-      var params = {
-        Id_user: '12'
-      }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getventasuser', params).then(response => {
+        console.log(response.data)
         this.products = response.data.productos
         this.status = response.data.status
       })
@@ -159,11 +119,13 @@ export default {
   },
   mounted () {
     var params = {
-      username: 'JesusJahir'
+      username: 'JesusJahir',
+      Id_user: '12'
     }
 
+    this.getVentas(params)
+
     axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getuser', params).then(response => {
-      console.log(response.data)
       this.userd = response.data.userdata
     })
       .catch(e => {
@@ -259,6 +221,10 @@ p{
     color: #ffffff;
 }
 
+.catalog-grid {
+    display: grid;
+}
+
 .container1{
     max-width: 1200px;
     margin: auto;
@@ -281,6 +247,24 @@ p{
     justify-content: space-around;
 }
 
+.fila .col-2 h2{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.fila .col-2 h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.fila .col-2 h5{
+    font-size: 15px;
+    text-align: center;
+}
+
 .fila-2 h6{
     font-size: 35px;
 }
@@ -291,7 +275,7 @@ p{
 }
 
 .col-2 img{
-    width: 100px;
+    width: 150px;
     padding: 10px 10px;
 }
 
@@ -341,7 +325,7 @@ p{
     justify-content: center;
     position: relative;
     width: 650px;
-    height: 400px;
+    min-height: 50px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
 }
@@ -378,7 +362,7 @@ p{
 }
 
 .form{
-    position: absolute;
+    position: relative;
     width: 100%;
     height: auto;
     padding: 20px;
@@ -396,11 +380,10 @@ p{
 }
 
 .form h2{
-    text-align: left;
-    margin: 0;
-    padding: 0;
+    text-align: center;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 18px;
+    display: block;
 }
 
 .form h3{
