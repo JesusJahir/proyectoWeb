@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <br><br>
-                            <input type="button" id="bot" name="bot" value="Agregar a bolsa"/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa"/>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="fila">
                     <div class="col1">
                         <h5>Cualquier duda, aclaraci&oacute;n o comentario, <br> no dudes en escribirnos a: <a href="mailto:atencionaclientes@symphony.com">atencionaclientes@symphony.com</a><br>
-                        <A href="#top"> Click para ver la parte superior </A> </h5>
+                        <a href="#top"> Click para ver la parte superior </a> </h5>
                     </div>
                     <div class="col1">
                         <img src="../assets/logot.gif" width="200px">

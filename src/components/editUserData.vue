@@ -10,7 +10,6 @@
                     <ul>
                         <li><router-link to="/">Home</router-link></li>
                         <li><router-link to="/catalogo">Catalogo</router-link></li>
-                        <li><router-link to="/login">Inicia sesión</router-link></li>
                     </ul>
                 </nav>
             </div>
@@ -46,7 +45,7 @@
                             <input type="text" name="artistaF" id="artistaF" placeholder="Artista favorito" ref='artistaF'/>
                         </div>
                         <div class="inputBox">
-                            <input type="button" id="bot" name="bot" value="Guardar" v-on:click ='editData'/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Guardar" v-on:click ='editData'/>
                         </div>
                         </form>
                     </div>

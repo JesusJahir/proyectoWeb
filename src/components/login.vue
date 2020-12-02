@@ -28,9 +28,9 @@
                             <input type="password" name="pass" id="pass" ref="pwd" placeholder="password"/>
                         </div>
                         <div class="inputBox">
-                            <input type="button" id="bot" name="bot" value="Login" v-on:click ="login"/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Login" v-on:click ="login"/>
                         </div>
-                        <p>¿Olvidaste tu password? <router-link to="/changePassword">Da click aquí</router-link></p>
+                        <p><router-link to="/changePassword"> ¿Olvidaste tu password? Da click aquí</router-link></p>
                         </form>
                     </div>
                 </div>

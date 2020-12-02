@@ -28,7 +28,7 @@
                             <input type="password" name="pass" id="pass" ref="pwd" placeholder="password"/>
                         </div>
                         <div class="inputBox">
-                            <input type="button" id="bot" name="bot" value="Cambiar contraseña" v-on:click ="changepass"/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Cambiar contraseña" v-on:click ="changepass"/>
                         </div>
                         </form>
                     </div>

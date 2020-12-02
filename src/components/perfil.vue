@@ -13,7 +13,7 @@
                             <li><router-link to="/perfil">Mi cuenta</router-link></li>
                         </ul>
                     </nav>
-                    <img src="../assets/bolsa.png" width="30px" height="30px">
+                    <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
                 </div>
 
                 <div class="fila-2">
@@ -33,7 +33,7 @@
                         <h2> Artista favorito: {{userd.artistaF}}</h2> <br><br>
                     </div>
                 </div>
-                <router-link to="/editUserData"><input type="button" id="bot" name="bot" value="Actualizar información"/></router-link>
+                <router-link to="/editUserData"><input class="mouse-hover" type="button" id="bot" name="bot" value="Actualizar información"/></router-link>
                 <br><br>
 
                 <div class="fila-2">

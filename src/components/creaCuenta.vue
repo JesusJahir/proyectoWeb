@@ -46,13 +46,13 @@
                             <input type="text" name="password" id="password" placeholder="password" ref='password'/>
                         </div>
                         <div class="inputBox">
-                            Fecha de nacimiento: <input type="date" id="birth" name="birth" ref='birth' min="1920-01-01" max="2020-12-31">
+                            Fecha de nacimiento: <input type="date" id="birth" name="birth" ref='birth' min=" 1920-01-01" max="2020-12-31">
                         </div>
                         <div class="inputBox">
                             <input type="text" name="artistaF" id="artistaF" placeholder="Artista favorito" ref='artistaF'/>
                         </div>
                         <div class="inputBox">
-                            <input type="button" id="bot" name="bot" value="Registrarse" v-on:click ='creaCuenta'/>
+                            <input class="mouse-hover" type="button" id="bot" name="bot" value="Registrarse" v-on:click ='creaCuenta'/>
                         </div>
                         </form>
                     </div>

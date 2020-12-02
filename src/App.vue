@@ -22,4 +22,8 @@ export default {
 body {
   margin: 0;
 }
+
+.mouse-hover{
+  cursor: pointer;
+}
 </style>

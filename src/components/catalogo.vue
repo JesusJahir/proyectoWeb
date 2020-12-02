@@ -30,8 +30,8 @@
                 <div class="fila">
                     <div class="inputBox">
                         <input class="search-text" type="text" name="searchText" id="searchText" ref="searchText" placeholder="Búsqueda de producto" v-model="searchText"/>
-                        <button class="search-button" v-on:click ="searchProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
-                        <button class="search-clean-button" v-on:click ="cleanSearch">Limpiar búsqueda</button>
+                        <button class="search-button mouse-hover" v-on:click ="searchProducts"><img src="../assets/lupa.png" width="40px" height="40px"></button>
+                        <button class="search-clean-button mouse-hover" v-on:click ="cleanSearch">Limpiar búsqueda</button>
                     </div>
                 </div>
 
@@ -41,14 +41,14 @@
                         <div class="form">
                             <div class="fila">
                                 <div class="col-2">
-                                    <a v-on:click ="goToProduct(product.id)">
+                                    <a class="mouse-hover" v-on:click ="goToProduct(product.id)">
                                         <img v-if="product.image != ''" :src="product.image">
                                         <img v-else src="../assets/cd_default.jpg">
                                     </a>
                                     <h4> {{product.artist}} </h4>
                                     <h5> {{product.title}} </h5>
                                     <p> ${{product.price}} </p>
-                                    <input type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
+                                    <input class="mouse-hover" type="button" id="bot" name="bot" value="Agregar a bolsa"/> <br>
                                 </div>
                             </div>
                         </div>

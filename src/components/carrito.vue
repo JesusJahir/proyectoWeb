@@ -41,7 +41,7 @@
                                 <div class="fila">
                                     <h3> PRECIO TOTAL : ${{total}} </h3>
                                 </div><br><br>
-                                <input type="button" id="bot" name="bot" value="Pagar"/> <br>
+                                <input class="mouse-hover" type="button" id="bot" name="bot" value="Pagar"/> <br>
                             </div>
                         </div>
                     </div>
