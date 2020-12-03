@@ -98,7 +98,7 @@ export default {
     addToCart: function (event) {
       var params = {
         'Id_prod': this.$route.params.Pid,
-        'Id_user': '12'
+        'Id_user': String(this.userdata.user.id)
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/addtocart', params).then(response => {
         alert('Producto agregado a tu bolsa')
