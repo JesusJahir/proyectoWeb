@@ -10,11 +10,11 @@
                         <ul>
                             <li><router-link to="/">Home</router-link></li>
                             <li><router-link to="/catalogo">Catalogo</router-link></li>
-                            <li v-if="isUserLogged === false"><router-link to="/login">Inicia sesión</router-link></li>
-                            <li v-if="isUserLogged === false"><router-link to="/creaCuenta">Regístrate</router-link></li>
-                            <li v-if="isUserLogged === true"><router-link to="/Perfil">Mi cuenta</router-link></li>
-                            <li v-if="isUserLogged === true"><router-link to="/">Cerrar sesión</router-link></li>
-                            <li v-if="isUserLogged === true">Hola, {{nambre}}</li>
+                            <li v-if="userdata.userLogged === false"><router-link to="/login">Inicia sesión</router-link></li>
+                            <li v-if="userdata.userLogged === false"><router-link to="/creaCuenta">Regístrate</router-link></li>
+                            <li v-if="userdata.userLogged === true"><router-link to="/Perfil">Mi cuenta</router-link></li>
+                            <li v-if="userdata.userLogged === true"><router-link to="/">Cerrar sesión</router-link></li>
+                            <li v-if="userdata.userLogged === true">Hola, {{userdata.user.name}}</li>
                         </ul>
                     </nav>
                     <router-link v-if="isUserLogged === true" to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
@@ -85,10 +85,12 @@ export default {
   name: 'product',
   data () {
     return {
-      isUserLogged: false,
-      nambre: 'Jesus',
       product: {
         name: null
+      },
+      userdata: {
+        userLogged: false,
+        user: null
       }
     }
   },
@@ -107,6 +109,17 @@ export default {
     }
   },
   mounted () {
+    if (this.$cookies.isKey('token')) {
+      var tokenparam = {
+        'token': this.$cookies.get('token')
+      }
+
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', tokenparam)
+        .then(response => {
+          this.userdata = response.data
+        })
+    } else {}
+
     var params = {
       'productId': this.$route.params.Pid
     }
