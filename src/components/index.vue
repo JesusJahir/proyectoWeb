@@ -13,7 +13,7 @@
                             <li v-if="userdata.userLogged === false"><router-link to="/login">Inicia sesión</router-link></li>
                             <li v-if="userdata.userLogged === false"><router-link to="/creaCuenta">Regístrate</router-link></li>
                             <li v-if="userdata.userLogged === true"><router-link to="/Perfil">Mi cuenta</router-link></li>
-                            <li v-if="userdata.userLogged === true"><router-link to="/">Cerrar sesión</router-link></li>
+                            <li v-if="userdata.userLogged === true"><a href="#"  v-on:click="logOut()">Cerrar sesión</a></li>
                             <li v-if="userdata.userLogged === true">Hola, {{userdata.user.name}}</li>
                         </ul>
                     </nav>
@@ -176,7 +176,12 @@ export default {
   methods: {
     goToProduct: function (id) {
       this.$router.push({name: 'product', params: {Pid: id}})
-    }
+    },
+
+    logOut: function (event) {
+      $cookies.remove('token')
+      this.$router.go()
+    },
   },
   mounted () {
     if (this.$cookies.isKey('token')) {
