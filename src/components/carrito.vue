@@ -83,7 +83,11 @@ export default {
     return {
       products: null,
       status: '',
-      total: ''
+      total: '',
+      userdata: {
+        userLogged: false,
+        user: null
+      }
     }
   },
   methods: {
@@ -127,6 +131,18 @@ export default {
     }
   },
   mounted () {
+    if (this.$cookies.isKey('token')) {
+      var tokenparam = {
+        'token': this.$cookies.get('token')
+      }
+
+      axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', tokenparam)
+        .then(response => {
+          this.userdata = response.data
+        })
+    } else {}
+
+
     var params = {
       Id_user: '12'
     }

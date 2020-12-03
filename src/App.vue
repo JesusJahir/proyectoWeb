@@ -11,28 +11,29 @@ export default {
   name: 'App',
   data () {
     return {
-      msg: 'TESTasdasd'
+      userdata: {
+        userLogged: false,
+        user: null
+      }
     }
   },
+  methods: {
+  },
   mounted () {
-    /*
-    if($cookies.isKey('token')) {
-      console.log('existe la cookie')
-    } else {
-      console.log('no existe')
-    }
+    // if ($cookies.isKey('token')) {
+    //   var tokenparam = {
+    //     'token': this.$cookies.get('token')
+    //   }
 
-    const token = this.$cookies.get('token')
-    console.log('token ', token)
-
-    axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', token)
-      .then(response => {
-        console.log('success', response.data)
-        tokenJWT = response.data.token
-      })
-    */
+    //   axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', tokenparam)
+    //     .then(response => {
+    //       console.log('success', response.data)
+    //       this.userdata = response.data
+    //     })
+    // } else {}
   }
 }
+
 </script>
 
 <style>
