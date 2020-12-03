@@ -17,7 +17,7 @@
                             <li v-if="userdata.userLogged === true">Hola, {{userdata.user.name}}</li>
                         </ul>
                     </nav>
-                    <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
+                    <router-link v-if="userdata.userLogged === true" to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
                 </div>
 
                 <div class="fila-2">
@@ -107,7 +107,7 @@ export default {
     },
     deleteCarrito: function () {
       var params = {
-        Id_user: this.userdata.user.id
+        'Id_user': this.userdata.user.id
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/deleteallcart', params).then(response => {
         this.products = null
@@ -121,7 +121,7 @@ export default {
     },
     generarVenta: function () {
       var params = {
-        Id_user: this.userdata.user.id,
+        'Id_user': this.userdata.user.id,
         total: this.total
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/generarventa', params).then(response => {
