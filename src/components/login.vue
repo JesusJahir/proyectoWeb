@@ -74,7 +74,7 @@ export default {
           console.log(response.data)
           if (response.data.login === 'success') {
             this.$cookies.set('token', response.data.token)
-            this.$router.push('index')
+            this.$router.push('home')
           } else {
             alert('Error de login, intenta de nuevo')
           }
