@@ -97,17 +97,18 @@ export default {
   methods: {
     getCarrito: function (params) {
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/getcarrito', params).then(response => {
+          console.log(response.data);
         this.products = response.data.productos
         this.status = response.data.status
         this.total = response.data.total
       })
-        .catch(e => {
-          this.errors.push(e)
-        })
+      .catch(e => {
+        this.errors.push(e)
+      })
     },
     deleteCarrito: function () {
       var params = {
-        'Id_user': this.userdata.user.id
+        Id_user:  String(this.userdata.user.id)
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/deleteallcart', params).then(response => {
         this.products = null
@@ -121,7 +122,7 @@ export default {
     },
     generarVenta: function () {
       var params = {
-        'Id_user': this.userdata.user.id,
+        Id_user:  String(this.userdata.user.id),
         total: this.total
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/generarventa', params).then(response => {
@@ -143,13 +144,17 @@ export default {
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/gettokenjwt', tokenparam)
         .then(response => {
           this.userdata = response.data
+          var params = {
+            Id_user: String(response.data.user.id)
+            }
+          this.getCarrito(params)
         })
     } else {}
 
-    var params = {
-      'Id_user': this.userdata.user.id
-    }
-    this.getCarrito(params)
+//     var params = {
+//       'Id_user': this.userdata.user.id
+//     }
+//     this.getCarrito(params)
   }
 }
 </script>
