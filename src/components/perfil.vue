@@ -44,8 +44,8 @@
                     <div v-if="status === false">No has realizado ningún pedido</div>
                         <div v-else class="catalog-grid">
                             <div class="container">
-                                <div class="form">
-                                    <div class="fila" v-for="product in products" :key="product.id">
+                                <div class="form" v-for="product in products" :key="product.id">
+                                    <div class="fila">
                                         <div class="col-2">
                                             <img v-if="product.image != ''" :src="product.image">
                                             <img v-else src="../assets/cd_default.jpg">
