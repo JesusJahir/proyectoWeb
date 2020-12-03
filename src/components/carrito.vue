@@ -103,7 +103,7 @@ export default {
     },
     deleteCarrito: function () {
       var params = {
-        Id_user: '12'
+        Id_user: this.userdata.user.id
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/deleteallcart', params).then(response => {
         this.products = null
@@ -117,7 +117,7 @@ export default {
     },
     generarVenta: function () {
       var params = {
-        Id_user: '12',
+        Id_user: this.userdata.user.id,
         total: this.total
       }
       axios.post('https://5e6cplgzmi.execute-api.us-east-1.amazonaws.com/default/generarventa', params).then(response => {
@@ -141,7 +141,6 @@ export default {
           this.userdata = response.data
         })
     } else {}
-
 
     var params = {
       Id_user: '12'

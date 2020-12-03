@@ -56,7 +56,8 @@ export default {
     return {
       msg: '',
       posts: [],
-      errors: []
+      errors: [],
+      isUserLogged: false
     }
   },
 
