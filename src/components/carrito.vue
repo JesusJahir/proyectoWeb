@@ -147,7 +147,7 @@ export default {
     } else {}
 
     var params = {
-      Id_user: this.userdata.user.id
+      'Id_user': this.userdata.user.id
     }
     this.getCarrito(params)
   }
