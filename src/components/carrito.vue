@@ -10,7 +10,11 @@
                         <ul>
                             <li><router-link to="/">Home</router-link></li>
                             <li><router-link to="/catalogo">Catalogo</router-link></li>
-                            <li><router-link to="/perfil">Mi cuenta</router-link></li>
+                            <li v-if="userdata.userLogged === false"><router-link to="/login">Inicia sesión</router-link></li>
+                            <li v-if="userdata.userLogged === false"><router-link to="/creaCuenta">Regístrate</router-link></li>
+                            <li v-if="userdata.userLogged === true"><router-link to="/Perfil">Mi cuenta</router-link></li>
+                            <li v-if="userdata.userLogged === true"><router-link to="/">Cerrar sesión</router-link></li>
+                            <li v-if="userdata.userLogged === true">Hola, {{userdata.user.name}}</li>
                         </ul>
                     </nav>
                     <router-link to="/carrito"><img src="../assets/bolsa.png" width="30px" height="30px"></router-link>
