@@ -10,6 +10,11 @@
                     <ul>
                         <li><router-link to="/">Home</router-link></li>
                         <li><router-link to="/catalogo">Catalogo</router-link></li>
+                        <li v-if="isUserLogged === false"><router-link to="/login">Inicia sesión</router-link></li>
+                        <li v-if="isUserLogged === false"><router-link to="/creaCuenta">Regístrate</router-link></li>
+                        <li v-if="isUserLogged === true"><router-link to="/Perfil">Mi cuenta</router-link></li>
+                        <li v-if="isUserLogged === true"><router-link to="/">Cerrar sesión</router-link></li>
+                        <li v-if="isUserLogged === true">Hola, {{nambre}}</li>
                     </ul>
                 </nav>
             </div>
@@ -64,7 +69,10 @@ import axios from 'axios'
 export default {
   name: 'editUserData',
   data () {
-    return {}
+    return {
+      isUserLogged: false,
+      nambre: 'Jesus'
+    }
   },
   methods: {
     editData: function (event) {
